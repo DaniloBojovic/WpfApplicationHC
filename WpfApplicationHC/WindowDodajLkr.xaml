@@ -1,0 +1,41 @@
+﻿<Window x:Class="WpfApplicationHC.WindowDodajLkr"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplicationHC"
+        mc:Ignorable="d"
+        Title="WindowDodajLkr" Height="500" Width="700" WindowStartupLocation="CenterScreen"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/hc5.jpg" />
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Text="Lekari koji vrse pregled:" FontWeight="Bold" Height="51" />
+        <DataGrid Name="DataGridLkr" IsReadOnly="True" Grid.Row="1" Grid.ColumnSpan="2" ColumnWidth="*">
+            <DataGrid.Background>
+                <ImageBrush ImageSource="Images/hc5.jpg" />
+            </DataGrid.Background>
+        </DataGrid>
+        <TextBlock Grid.Row="2" Text="Dodaj Lekara:" Visibility="Hidden" FontWeight="Bold" Height="51" Margin="10,5,0,0" />
+        <ComboBox x:Name="cmbOdaberi" IsEditable="True" Visibility="Hidden" Grid.Row="3" IsReadOnly="True" Text="Odaberite lekara" HorizontalAlignment="Left" Margin="10,12,0,0" VerticalAlignment="Top" Width="330" SelectionChanged="cmbOdaberi_SelectionChanged">
+            <ComboBoxItem>dr Radosevic Marija</ComboBoxItem>
+            <ComboBoxItem>dr Tomic VLadimir</ComboBoxItem>
+            <ComboBoxItem>dr Sobot Zarko</ComboBoxItem>
+            <ComboBoxItem>dr Milosevic Ozren</ComboBoxItem>
+            <ComboBoxItem>dr Mijatov Dragana</ComboBoxItem>
+            <ComboBoxItem>dr Bajcetic Slobodan</ComboBoxItem>
+        </ComboBox>
+        <Button x:Name="btnDodaj" Content="Dodaj" Visibility="Hidden" Margin="0,124,14,0" Grid.Row="3" VerticalAlignment="Center" Width="75" HorizontalAlignment="Right" Click="btnDodaj_Click"/>
+    </Grid>
+</Window>

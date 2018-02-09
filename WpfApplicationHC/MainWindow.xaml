@@ -1,0 +1,53 @@
+﻿<Window x:Class="WpfApplicationHC.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApplicationHC"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="700" Width="1300" 
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="Height" Value="25" />
+            <Setter Property="Background" Value="#424242" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="Images/hc0.jpg" />
+    </Window.Background>
+    <StackPanel>
+        <Grid Height="437">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="270" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Button Grid.Column="0" Content="Home" Click="Button_Click_1" Margin="0,0,0,29" Height="Auto"></Button>
+            <Button x:Name="btnPacijenti" Grid.Column="1" Content="Pacijenti" Margin="0,0,0,29" Height="Auto" Click="PacijentiBtnClick"></Button>
+            <Button x:Name="btnLekari" Grid.Column="2" Content="Lekari" Margin="0,0,0,29" Height="Auto" Click="LekariBtnClick"></Button>
+            <Button x:Name="btnPregledi" Grid.Column="3" Content="Pregledi" Margin="0,0,0,29" Height="Auto" Click="PreglediBtnClick"></Button>
+            <TextBlock Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Text=" HEALTH CARE" Grid.Column="1" Margin="111,0,90,23" Width="171" FontSize="16" FontWeight="Bold" FontFamily="Verdana" />
+            <Image Grid.Row="3" Grid.Column="0" Source="Images/logo.png" Margin="0,156,0,-167" HorizontalAlignment="Left" Width="148"/>
+            <Frame Name="frmMain" Grid.Row="2" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="4" Margin="0,0,0,-96" />
+            <!--<DataGrid Name="myDataGrid" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" Height="270" 
+                      VerticalAlignment="Bottom" Margin="56,0,52,0" HeadersVisibility="None">
+                <DataGrid.Background>
+                    <ImageBrush ImageSource="Images/hc5.jpg" />
+                </DataGrid.Background>
+            </DataGrid>-->
+        </Grid>
+        <Frame Name="Main" />
+    </StackPanel>
+
+</Window>

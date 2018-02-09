@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="aspnet-HealthCare" Class="HealthCareDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=aspnet-HealthCare;Integrated Security=True" SettingsObjectName="WpfApplicationHC.Properties.Settings" SettingsPropertyName="aspnet_HealthCareConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.[File]" Member="Files">
+    <Type Name="File">
+      <Column Name="FileID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ContentType" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Content" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FileType" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PacijentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="LekarID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Lekar_File" Member="Lekar" ThisKey="LekarID" OtherKey="ID" Type="Lekar" IsForeignKey="true" />
+      <Association Name="Pacijent_File" Member="Pacijent" ThisKey="PacijentID" OtherKey="ID" Type="Pacijent" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Karton" Member="Kartons">
+    <Type Name="Karton">
+      <Column Name="KartonID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PregledID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PacijentID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Izvestaj" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Pacijent_Karton" Member="Pacijent" ThisKey="PacijentID" OtherKey="ID" Type="Pacijent" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Pregled_Karton" Member="Pregled" ThisKey="PregledID" OtherKey="PregledID" Type="Pregled" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Lekar" Member="Lekars">
+    <Type Name="Lekar">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Prezime" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Ime" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DatumZaposlenja" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Email" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Lekar_File" Member="Files" ThisKey="ID" OtherKey="LekarID" Type="File" />
+      <Association Name="Lekar_LekarPregled" Member="LekarPregleds" ThisKey="ID" OtherKey="LekarID" Type="LekarPregled" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LekarPregled" Member="LekarPregleds">
+    <Type Name="LekarPregled">
+      <Column Name="LekarPregledID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LekarID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PregledID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Participacija" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Lekar_LekarPregled" Member="Lekar" ThisKey="LekarID" OtherKey="ID" Type="Lekar" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Pregled_LekarPregled" Member="Pregled" ThisKey="PregledID" OtherKey="PregledID" Type="Pregled" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pacijent" Member="Pacijents">
+    <Type Name="Pacijent">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Prezime" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Ime" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="DatumRegistracije" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Firma" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Pacijent_File" Member="Files" ThisKey="ID" OtherKey="PacijentID" Type="File" />
+      <Association Name="Pacijent_Karton" Member="Kartons" ThisKey="ID" OtherKey="PacijentID" Type="Karton" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Pregled" Member="Pregleds">
+    <Type Name="Pregled">
+      <Column Name="PregledID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Naziv" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Opis" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Pregled_Karton" Member="Kartons" ThisKey="PregledID" OtherKey="PregledID" Type="Karton" />
+      <Association Name="Pregled_LekarPregled" Member="LekarPregleds" ThisKey="PregledID" OtherKey="PregledID" Type="LekarPregled" />
+    </Type>
+  </Table>
+</Database>

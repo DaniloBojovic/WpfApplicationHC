@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.875" name="HealthCare">
+  <DataContextMoniker Name="/HealthCareDataContext" />
+  <nestedChildShapes>
+    <classShape Id="715b3764-efb8-427b-a1b4-4d91c51660a5" absoluteBounds="4.625, 6.5, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/HealthCareDataContext/File" />
+      <nestedChildShapes>
+        <elementListCompartment Id="85207606-cbdb-40f9-98be-38857c3871e0" absoluteBounds="4.6400000000000006, 6.9600000000000009, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="910c2641-e1ec-4656-aad4-16f9a7c6581e" absoluteBounds="3.875, 3.375, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/HealthCareDataContext/Karton" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d74cb790-ea74-4046-be58-9569bb50535c" absoluteBounds="3.89, 3.835, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f5372307-26e1-4130-b95a-ebe70a469caf" absoluteBounds="6.5, 1.375, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/HealthCareDataContext/Lekar" />
+      <nestedChildShapes>
+        <elementListCompartment Id="12673c2f-96ec-41c2-9e55-dc601dc0be9b" absoluteBounds="6.5150000000000006, 1.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="41871d9a-84f2-4d16-8043-baf6134a77d7" absoluteBounds="3.75, 0.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/HealthCareDataContext/LekarPregled" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a48550a8-4d70-49a8-b76d-4b3c760b857a" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4b40400a-aaf3-4fa8-a3a9-fa15d0278377" absoluteBounds="1.125, 5, 2, 1.7708968098958327">
+      <DataClassMoniker Name="/HealthCareDataContext/Pacijent" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f6823149-c556-4a33-a006-8c0588bf8fba" absoluteBounds="1.1400000000000001, 5.4600000000000009, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="38959269-ec31-497f-a003-6fbbb5631489" absoluteBounds="0.875, 1.75, 2, 1.3862939453124992">
+      <DataClassMoniker Name="/HealthCareDataContext/Pregled" />
+      <nestedChildShapes>
+        <elementListCompartment Id="02ba6502-e4b7-4e10-964f-3b37607e5166" absoluteBounds="0.89000000000000012, 2.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.5625005 : 3.14589680989583); (7.5625005 : 7.57774983723958); (6.625 : 7.57774983723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HealthCareDataContext/Lekar/Lekar_File" />
+      <nodes>
+        <classShapeMoniker Id="f5372307-26e1-4130-b95a-ebe70a469caf" />
+        <classShapeMoniker Id="715b3764-efb8-427b-a1b4-4d91c51660a5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.5 : 1.85179768880208); (5.75 : 1.85179768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HealthCareDataContext/Lekar/Lekar_LekarPregled" />
+      <nodes>
+        <classShapeMoniker Id="f5372307-26e1-4130-b95a-ebe70a469caf" />
+        <classShapeMoniker Id="41871d9a-84f2-4d16-8043-baf6134a77d7" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.125 : 5.7499995); (5.625 : 5.7499995); (5.625 : 6.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HealthCareDataContext/Pacijent/Pacijent_File" />
+      <nodes>
+        <classShapeMoniker Id="4b40400a-aaf3-4fa8-a3a9-fa15d0278377" />
+        <classShapeMoniker Id="715b3764-efb8-427b-a1b4-4d91c51660a5" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(3.125 : 5.34374725); (4.21875 : 5.34374725); (4.21875 : 4.95359537760417)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HealthCareDataContext/Pacijent/Pacijent_Karton" />
+      <nodes>
+        <classShapeMoniker Id="4b40400a-aaf3-4fa8-a3a9-fa15d0278377" />
+        <classShapeMoniker Id="910c2641-e1ec-4656-aad4-16f9a7c6581e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 2.76369466145833); (5.84375 : 2.76369466145833); (5.84375 : 3.375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HealthCareDataContext/Pregled/Pregled_Karton" />
+      <nodes>
+        <classShapeMoniker Id="38959269-ec31-497f-a003-6fbbb5631489" />
+        <classShapeMoniker Id="910c2641-e1ec-4656-aad4-16f9a7c6581e" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.875 : 2.03929768880208); (3.75 : 2.03929768880208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/HealthCareDataContext/Pregled/Pregled_LekarPregled" />
+      <nodes>
+        <classShapeMoniker Id="38959269-ec31-497f-a003-6fbbb5631489" />
+        <classShapeMoniker Id="41871d9a-84f2-4d16-8043-baf6134a77d7" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
